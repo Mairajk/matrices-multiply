@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Matrics multiply calculator</h1>
+    <form action="" onsubmit="box() ; return false">
+    <input type="number" placeholder="1" id="one">
+    <input type="number" placeholder="2" id ="two">
+    <button type="submit">generate</button>
+</form>
+<form action="" onsubmit="calculate()">
+    <div id="iM1" style="background-color: blue;"></div>
+    <div id="iM2" style="background-color:red;"></div>
+    <div id="mResult"></div>
+    
+</form>
+
+    <script>
+           
+       
+        function box() {
+            let one = document.querySelector("#one").value ;
+        let two = document.querySelector("#two").value ;
+        
+ 
+            for (let i = 0; i<one ; i++){
+                for (let j = 0; j < two ; j++) {
+                document.querySelector("#iM1").innerHTML += 
+                ` <input type="number" min="0" max="100" class="iM"  id="iM1"${i_j}>`
+                
+                }
+             document.querySelector("#iM1").innerHTML += `<br>`
+           
+            }
+            
+            
+            for (let i = 0; i<one ; i++){
+                for (let j = 0; j < two ; j++) {
+                document.querySelector("#iM2").innerHTML += 
+                ` <input type="number" min="0" max="100" class="iM" id="iM2"${i_j}>`
+                
+                }
+             document.querySelector("#iM2").innerHTML += `<br>`
+           
+            } 
+                        
+            
+            for (let i = 0; i<one ; i++){
+                for (let j = 0; j < two ; j++) {
+                document.querySelector("#result").innerHTML += 
+                ` <input type="number" min="0"  max="100" class="iM" id="result"${i_j}>`
+                
+                }
+             document.querySelector("#result").innerHTML += `<br>`
+           
+            } 
+
+        }
+ 
+    </script>
+</body>
+</html>
