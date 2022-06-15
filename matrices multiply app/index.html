@@ -8,15 +8,19 @@
 </head>
 <body>
     <h1>Matrics multiply calculator</h1>
-    <form action="" onsubmit="box() ; return false">
+    <form action="" onsubmit="box() ; return false ;">
     <input type="number" placeholder="1" id="one">
     <input type="number" placeholder="2" id ="two">
     <button type="submit">generate</button>
 </form>
+<br><br>
 <form action="" onsubmit="calculate()">
     <div id="iM1" style="background-color: blue;"></div>
+    <br><br>
     <div id="iM2" style="background-color:red;"></div>
     <div id="mResult"></div>
+
+    <button type="submit">cal</button>
     
 </form>
 
@@ -26,42 +30,33 @@
         function box() {
             let one = document.querySelector("#one").value ;
         let two = document.querySelector("#two").value ;
-        // let mResult = document.querySelector("#mResult").value ;
+        // let mResult = document.querySelector("#mResult") ;
         
- 
-            // for (let i = 0; i<one ; i++){
-            //     for (let j = 0; j < two ; j++) {
-            //     document.querySelector("#iM1").innerHTML += 
-            //     ` <input type="number" min="0" max="100" class="iM"  id="iM1"${i_j}>`
+        for (let i = 0 ;   i < one ;   i++) {
+            for (let j = 0 ;   j < two ;   j++) {
+                document.querySelector("#iM1").innerHTML +=  `<input placeholder="0"  id="iM1${i}_${j}"
+             class="1iM" required type="number" min="0" max="100" value="0"> ` ;
+             document.querySelector("#iM2").innerHTML +=  `<input placeholder="0"  id="iM2${i}_${j}"
+             class="2iM" required type="number" min="0" max="100" value="0"> ` ;
                 
-            //     }
-            //  document.querySelector("#iM1").innerHTML += `<br>`
-           
-            // }
+            }
+            document.querySelector("#iM1").innerHTML += `<br>`
+            document.querySelector("#iM2").innerHTML += `<br>`
             
-            
-            for (let i = 0; i<one ; i++){
-                for (let j = 0; j < two ; j++) {
-                document.querySelector("#iM2").innerHTML += 
-                ` <input type="number" min="0" max="100" class="iM" id="iM2"${i_j}>`
-                
-                }
-             document.querySelector("#iM2").innerHTML += `<br>`
-           
-            } 
-                        
-            
-            // for (let i = 0; i<one ; i++){
-            //     for (let j = 0; j < two ; j++) {
-            //     document.querySelector("#mResult").innerHTML += 
-            //     ` <input type="number" min="0"  max="100" class="iM" id="mResult"${i_j}>`
-                
-            //     }
-            //  document.querySelector("#mResult").innerHTML += `<br>`
-           
-            // } 
-
         }
+    } 
+    
+    function calculate() {
+        // document.querySelector(`#mResult`).innerHTML= 
+        // document.querySelector(`#iM1${i}_${j}`).value
+        // document.write(`#iM1${i}_${j}`).value
+        console.log(document.querySelector(`#iM1${i}_${j}`).value);
+        // for (let i = 0; i < 2 ; i++) {
+        //     // const element = array[i];
+            
+        // }
+        
+    }
  
     </script>
 </body>
