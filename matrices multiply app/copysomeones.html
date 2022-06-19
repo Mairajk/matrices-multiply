@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matrix Sum</title>
+</head>
+
+<body>
+    <div>
+         <button><a href="Sum.html">Sum</a></button>
+    </div>
+    <div>
+        <h1>Matrix Multiply Table</h1>
+
+        <form onsubmit="getInp(); return false">
+            <input type="number" min="2" id="Inp1" placeholder="minimum 2" required />
+            <input type="number" min="2" id="Inp2" placeholder="minimum 2" required />
+            <button type="submit">Click Here</button>
+        </form>
+        <br /><br />
+    </div>
+    <div>
+        <form onsubmit="sum(); return false" id="onsubmitform">
+            <div id="matOne"></div>
+            =
+            <div id="matTwo"></div>
+            <br />
+            <button>Multiply</button><br />
+            <div id="resultMat"></div>
+        </form>
+    </div>
+
+
+    <script>
+        document.getElementById("onsubmitform").style.visibility = "hidden";
+        let value1 = "";
+        let value2 = "";
+        function getInp() {
+            let matOne = document.getElementById("matOne");
+            let matTwo = document.getElementById("matTwo");
+            let resultMat = document.getElementById("resultMat");
+            matOne.innerHTML = " ";
+            matTwo.innerHTML = " ";
+            resultMat.innerHTML = " ";
+            value1 = document.getElementById("Inp1").value;
+            value2 = document.getElementById("Inp2").value;
+            if (value1 !== value2) {
+                alert("mat value must be same");
+                return;
+            }
+            for (let i = 0; i < value1; i++) {
+                for (let j = 0; j < value2; j++) {
+                    matOne.innerHTML += `<input id="m1${i}${j}"  placeholder="0" type="number">`;
+                    matTwo.innerHTML += `<input id="m2${i}${j}"  placeholder="0" type="number">`;
+                    resultMat.innerHTML += `<input id="m3${i}${j}"  readonly placeholder="0" type="number">`;
+                }
+                matOne.innerHTML += `<br>`;
+                matTwo.innerHTML += `<br>`;
+                resultMat.innerHTML += `<br>`;
+            }
+            document.getElementById("onsubmitform").style.visibility = "visible";
+        }
+
+        function sum() {
+            let multiply1 = [];
+            let multiply2 = [];
+            let multiply3 = [];
+            let multiply4 = [];
+            for (let i = 0; i < value1; i++) {
+                for (let j = 0; j < value2; j++) {
+                    let m1value = +document.querySelector(`#m1${i}${j}`).value;
+                    let m2value = +document.querySelector(`#m2${i}${j}`).value;
+                    multiply1.push(m1value);
+                    multiply2.push(m2value);
+                }
+            }
+            for (let i = 0; i < value1; i++) {
+                for (let j = 0; j < value2; j++) {
+                    let m3value = 0;
+                    for (let k = 0; k < value1; k++) {
+                        m3value += multiply1[i * value1 + k] * multiply2[k * value2 + j];
+                    }
+                    multiply3.push(m3value);
+                }
+            }
+            for (let i = 0; i < value1; i++) {
+                for (let j = 0; j < value2; j++) {
+                    document.querySelector(`#m3${i}${j}`).value =
+                        multiply3[i * value1 + j];
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>

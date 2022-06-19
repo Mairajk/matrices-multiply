@@ -13,20 +13,27 @@
     <input type="number" placeholder="2" id ="two">
     <button type="submit">generate</button>
 </form>
+
 <br><br>
-<form action="" onsubmit="calculate()">
+
+<form action="" onsubmit="calculate() ; return false ; ">
     <div id="iM1" style="background-color: blue;"></div>
+    
     <br><br>
+    
     <div id="iM2" style="background-color:red;"></div>
+
+    <br><br>
+   
     <div id="mResult"></div>
 
     <button type="submit">cal</button>
     
 </form>
 
-    <script>
+    <script src="app.js">
            
-       
+       /*
         function box() {
             let one = document.querySelector("#one").value ;
         let two = document.querySelector("#two").value ;
@@ -47,16 +54,26 @@
     } 
     
     function calculate() {
+        let one = document.querySelector("#one").value ;
+    let two = document.querySelector("#two").value ;
+    // let mResult = document.querySelector("#mResult") ;
         // document.querySelector(`#mResult`).innerHTML= 
         // document.querySelector(`#iM1${i}_${j}`).value
         // document.write(`#iM1${i}_${j}`).value
-        console.log(document.querySelector(`#iM1${i}_${j}`).value);
+        for (let i = 0 ; i < one  ; i++) {
+            for (let j = 0 ; j < two ; j++) {
+                
+                console.log(document.querySelector(`#iM1${i}_${j}`).value);
+                console.log(document.querySelector(`#iM2${i}_${j}`).value);
+            }
+        }
         // for (let i = 0; i < 2 ; i++) {
         //     // const element = array[i];
             
         // }
         
     }
+    */
  
     </script>
 </body>
